@@ -1,0 +1,27 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int maxLen =0;
+        int currLen=0;
+        int i=0;
+        int j=-1;
+        boolean[]set=new boolean[256];
+        while(i<s.length()){
+            char chtoacquire = s.charAt(i);
+            //duplicacy//
+            while(set[chtoacquire]==true){
+                j++;
+                char chtorelease = s.charAt(j);
+                set[chtorelease]=false;
+            }
+            //acquire//
+            set[chtoacquire]=true;
+            //update the length//
+            currLen=i-j;
+            if(currLen>maxLen){
+                maxLen=currLen;
+            }
+            i++;
+        }
+        return maxLen;
+    }
+}
