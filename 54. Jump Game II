@@ -1,0 +1,25 @@
+class Solution {
+    public static int finder(int nums[],int index,int dp[]){
+        if(index==nums.length-1){
+            return 0;
+        }
+        if(dp[index]!=-1){
+            return dp[index];
+        }
+        int npick=Integer.MAX_VALUE;
+        for(int i=1;i<=nums[index];i++){
+            int pick=Integer.MAX_VALUE;
+            if(i+index<nums.length){
+                pick=finder(nums,i+index,dp);
+                if(pick!=Integer.MAX_VALUE)
+                npick=Math.min(pick+1,npick);
+            }
+        }
+        return dp[index]=npick;
+    }
+    public int jump(int[] nums) {
+        int dp[]=new int[nums.length];
+        Arrays.fill(dp,-1);
+        return finder(nums,0,dp);
+    }
+}

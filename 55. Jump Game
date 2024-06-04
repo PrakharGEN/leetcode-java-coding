@@ -1,0 +1,22 @@
+class Solution {
+    public boolean canJump(int[] nums) {
+
+        int currEnd = 0;
+        int currFar = 0;
+
+        int length = nums.length - 1;
+        for(int i=0; i<length; i++) {
+            currFar = Math.max(currFar, i + nums[i]);
+
+            if(i == currEnd) {
+                if(currFar > currEnd) {
+                    currEnd = currFar;
+                } else
+                    return false;
+                
+            }
+        }
+
+        return true;
+    }        
+}
