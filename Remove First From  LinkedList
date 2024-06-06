@@ -1,0 +1,12 @@
+public Void removeFirst(){
+    if(size==0){
+        System.out.println("LinkedList is Empty");
+    }
+    else if(size==1){
+        head=tail=null;
+        size--;
+    }else{
+        head=head.next;
+        size--;
+    }
+}

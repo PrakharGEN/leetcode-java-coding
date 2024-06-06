@@ -1,0 +1,29 @@
+public class main{
+    public static class node{
+        int data;
+        node.next;
+    }
+    public static class linkedlist{
+        int data;
+        int tail;
+        int size;
+
+    }
+    void addLast(int val){
+        if(size==0){
+            node temp=new node();
+            temp.data=val;
+            temp.next=null;
+            head=tail=temp;
+            size++;
+        }else{
+            node temp=new node();
+            temp.data=val;
+            temp.next=null;
+            tail.next=temp;
+            tail=temp;
+            size++;
+        }
+    }
+    }
+}
