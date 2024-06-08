@@ -1,0 +1,22 @@
+Public class main{
+    public static class node{
+        int data;
+        node.next;
+    }
+    public static  class LinkedList{
+        Node head;
+        Node tail;
+        int size;
+    }
+    public void addFirstLinkedList(int val){
+
+    node temp =new node();
+    temp.data=val;
+    temp.next = head;
+    head=temp;
+     if(size==0){
+        tail=temp;
+     }
+     size++
+    }
+}

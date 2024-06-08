@@ -1,0 +1,32 @@
+Public class main{
+    public static class node{
+        int data;
+        node.next;
+    }
+    public static  class LinkedList{
+        Node head;
+        Node tail;
+        int size;
+    }
+    public void addAtIndex(int idx, int val){
+        if(idx<0||idx>size){
+            System.out.println("Index Out Of Bound Exception");
+        }
+        else if(idx==0){
+            addFirst(val); //seen in prev//
+        }
+        else if(idx==size){
+            addLast(val);//seen in prev//
+        }else{
+            node pm =new node();
+            node.data=val;
+            node temp =head;
+            for(int i=0;i<idx-1;i++){
+                temp=temp.next;
+            }
+            node.next=temp.next;
+            temp.next=node;
+            size++
+        }
+    }
+}
