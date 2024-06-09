@@ -1,0 +1,12 @@
+public int KthFromLast(int k){
+    Node slow =  head;
+    Node fast =  head;
+    for(int i=0;i<k;i++){
+        f=f.next;
+    }
+    while(f!=tail){
+        s = s.next;
+        f= f.next;
+    }
+    return s.data;
+}
