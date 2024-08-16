@@ -1,0 +1,20 @@
+class Solution {
+    public static TreeNode buildTree(int[]postorder,int psi,int pei,int[]inorder,int isi,int iei){
+        if(isi>iei){
+            return null;
+        }
+            TreeNode root = new TreeNode(postorder[pei]);
+            int idx = isi;
+            while(inorder[idx]!=postorder[pei]){
+                idx++;
+            }
+            int tnel = idx-isi;
+            root.left = buildTree(postorder,psi,psi+tnel-1,inorder,isi,idx-1);
+            root.right = buildTree(postorder,psi+tnel,pei-1,inorder,idx+1,iei);
+            return root;
+    }
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        int n = inorder.length;
+        return buildTree(postorder,0,n-1,inorder,0,n-1);
+    }
+}

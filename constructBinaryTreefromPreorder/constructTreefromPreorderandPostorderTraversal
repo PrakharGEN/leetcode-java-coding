@@ -1,0 +1,22 @@
+class Solution {
+    public static TreeNode helper(int[]preorder,int psi,int pei,int[]postorder,int pssi, int psei){
+        if(psi>pei)return null;
+        TreeNode root = new TreeNode(preorder[psi]);
+        if(psi==pei){
+            return root;
+        }
+        int idx = pssi;
+        while(postorder[idx]!=preorder[psi+1]){
+            idx++;
+        }
+        int tnel = idx-pssi+1;
+        root.left= helper(preorder,psi+1,psi+tnel,postorder,pssi,idx);
+        root.right= helper(preorder,psi+tnel+1,pei,postorder,idx+1,psei);
+        return root;
+    }
+
+    public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
+        int n = preorder.length;
+        return helper(preorder,0,n-1,postorder,0,n-1);
+    }
+}
